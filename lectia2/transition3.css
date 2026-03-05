@@ -1,0 +1,15 @@
+#div {
+  border: 1px solid red;
+  width: 200px;
+  height: 50px;
+  color: 000000;
+  transition-property: width;
+  transition-duration: 3s;
+  transition-timing-function: cubic-bezier(0.88, -0.64, 0.25, 0.6);
+  transition-delay: 0s;
+  /* https://cubic-bezier.com/#.88,-0.64,.25,.6 */
+}
+
+#div:hover {
+  width: 800px;
+}

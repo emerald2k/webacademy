@@ -1,0 +1,56 @@
+#div {
+  border: 1px solid red;
+  width: 200px;
+  height: 50px;
+  color: 000000;
+  background: white;
+
+  /* transition-property: background;
+  transition-duration: 2s;
+  transition-timing-function: ease;
+  transition-delay: 0s; */
+
+  /* transition-property: background;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+  transition-delay: 2s; */
+
+  /* transition: background 0.5s ease; */
+
+  /* transition: background 0.5s; */
+
+  /* transition: width 0.5s ease; */
+
+  /* transition:
+    width 1s ease,
+    background 1s ease; */
+
+  /* transition:
+    width 1s ease,
+    background 4s ease 1s; */
+
+  /* transition:
+    width 1s ease,
+    height 1s ease 1s; */
+
+  /* transition: all 1s ease; */
+
+  /* transition: all 1s ease-in; */
+
+  /* transition: all 1s ease-out; */
+
+  /* transition: all 2s ease-in-out; */
+
+  /* transition: all 2s linear; */
+
+  /* transition: all 2s step-start; */
+
+  /* transition: all 2s step-end; */
+}
+
+#div:hover {
+  background: red;
+  color: white;
+  width: 400px;
+  height: 100px;
+}
