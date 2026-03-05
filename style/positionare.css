@@ -1,0 +1,217 @@
+#wrapper {
+  width: 1000px;
+  margin: 0px auto;
+  border: 1px solid black;
+}
+#header {
+  height: 200px;
+  border: 1px solid black;
+}
+#content {
+  height: 400px;
+  border: 1px solid black;
+}
+
+#footer {
+  height: 200px;
+  border: 1px solid black;
+}
+/* ========================== */
+#wrapper1 {
+  width: 1000px;
+  margin: 0px auto;
+  outline: 1px solid black;
+}
+#header1 {
+  height: 200px;
+  outline: 1px solid black;
+}
+#content1 {
+  height: 400px;
+  outline: 1px solid black;
+  float: left;
+}
+#sidebar1 {
+  width: 200px;
+  height: 400px;
+  outline: 1px solid black;
+  float: left;
+}
+.clearfix {
+  clear: both;
+}
+#footer1 {
+  height: 200px;
+  outline: 1px solid black;
+}
+/* ========================== */
+#wrapper2 {
+  width: 900px;
+  margin: 0px auto;
+  outline: 1px solid black;
+}
+#header2 {
+  height: 200px;
+  outline: 1px solid black;
+}
+#content2 {
+  height: 400px;
+  width: 700px;
+  outline: 1px solid black;
+  float: right;
+}
+#sidebar2 {
+  width: 200px;
+  height: 400px;
+  outline: 1px solid black;
+  float: right;
+}
+.clearfix1 {
+  clear: both;
+}
+#footer2 {
+  height: 200px;
+  border: 1px solid black;
+}
+/* ========================== */
+#wrapper3 {
+  width: 1000px;
+  margin: 0px auto;
+  outline: 1px solid black;
+}
+#header3 {
+  height: 200px;
+  outline: 1px solid black;
+}
+#left3,
+#right3 {
+  float: left;
+  width: 200px;
+  height: 400px;
+  outline: 1px solid black;
+}
+#content3 {
+  height: 400px;
+  width: 600px;
+  outline: 1px solid black;
+  float: left;
+}
+#footer3 {
+  height: 200px;
+  outline: 1px solid black;
+}
+.clearfix2 {
+  clear: both;
+}
+/* ========================== */
+#wrapper4 {
+  width: 900px;
+  margin: 0px auto;
+  outline: 1px solid black;
+}
+#header4 {
+  height: 200px;
+  outline: 1px solid black;
+}
+#left4,
+#right4 {
+  width: 300px;
+  height: 400px;
+  outline: 1px solid black;
+}
+#left4 {
+  float: left;
+}
+#right4 {
+  float: right;
+}
+#content4 {
+  height: 400px;
+  margin: 0px 300px;
+  outline: 1px solid black;
+}
+#footer4 {
+  height: 200px;
+  outline: 1px solid black;
+}
+.clearfix3 {
+  clear: both;
+}
+/* ========================== */
+#wrapper5 {
+  width: 900px;
+  margin: 0px auto;
+  outline: 1px solid black;
+}
+#header5 {
+  height: 200px;
+  margin-bottom: 20px;
+  outline: 1px solid black;
+}
+#left5,
+#right5 {
+  width: 200px;
+  height: 400px;
+  outline: 1px solid black;
+}
+#left5 {
+  float: left;
+}
+#right5 {
+  float: right;
+}
+#content5 {
+  height: 400px;
+  margin: 0px 220px;
+  outline: 1px solid black;
+}
+#footer5 {
+  height: 200px;
+  margin-top: 20px;
+  outline: 1px solid black;
+}
+.clearfix4 {
+  clear: both;
+}
+/* ========================== */
+#wrapper6 {
+  width: 1000px;
+  margin: 0px auto;
+  outline: 1px solid black;
+}
+#header6 {
+  height: 200px;
+  margin-bottom: 20px;
+  outline: 1px solid black;
+}
+#left6,
+#right6 {
+  width: 200px;
+}
+#left6 {
+  float: left;
+  margin-left: 20px;
+}
+#left6 div {
+  outline: 1px solid black;
+  height: 200px;
+  margin-bottom: 20px;
+}
+#right6 {
+  float: right;
+  outline: 1px solid black;
+  margin-right: 20px;
+}
+#content6 {
+  height: 400px;
+  margin: 0px 240px;
+  outline: 1px solid black;
+}
+#footer6 {
+  height: 200px;
+  margin-top: 20px;
+  outline: 1px solid black;
+}
+.clearfix5 {
+  clear: both;
+}

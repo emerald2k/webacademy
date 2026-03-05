@@ -1,0 +1,27 @@
+#wrapper1 {
+  width: 1100px;
+  margin: 10px auto;
+}
+
+#left1 {
+  width: 200px;
+  float: left;
+}
+
+#right1 {
+  width: 200px;
+  float: right;
+}
+
+#content1 {
+  width: 700px;
+  float: left;
+}
+
+#header1,
+#content1,
+#footer1,
+#left1,
+#right1 {
+  outline: 1px solid blue;
+}
