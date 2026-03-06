@@ -1,0 +1,88 @@
+#wrapper {
+  width: 1000px;
+  margin: 0px auto;
+  outline: 1px solid black;  
+}
+
+#header {
+  height: 200px;
+  outline: 1px solid black;
+}
+
+#header img {
+  width: 200px;
+  height: 200px;
+  float: left;
+}
+
+#navbar {
+  list-style: none;
+  outline: 1px solid black;
+  margin: 2px 0;  
+  padding: 2px 0;
+  width: 500px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#navbar a {
+  text-decoration: none;
+  color: blue;
+  cursor: pointer;
+}
+
+#navbar a:hover,
+#navbar a:active {
+  color: red;
+  text-decoration: underline;
+}
+
+#left,
+#right {
+  width: 200px;
+  /* height: 400px; */
+  /* outline: 1px solid black; */
+}
+
+#left {
+  float: left;
+}
+
+#right {
+  float: right;
+}
+
+/* 
+Browsers give heading tags a built‑in margin (for <h1> it’s usually margin: 0.67em 0), 
+and in the normal box‑model the top margin of a block‑level child collapses into the parent when:
+- the parent has no border, padding or clearance before the child, and
+- the parent has no height set that “contains” the child.
+*/
+#content {
+  width: 600px;
+  margin: 0px 200px;
+  border: 1px solid black;
+  box-sizing: border-box;
+
+  p {
+    text-align: justify;
+  }
+}
+
+#footer {
+  height: 200px;
+  outline: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.url {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.clearfix {
+  clear: both; 
+}
