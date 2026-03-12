@@ -1,11 +1,12 @@
 #wrapper1 {
   width: 1000px;
   margin: 0px auto;
-  outline: 1px solid black;
+  /* outline: 1px solid black; */
 }
+
 #header1 {
-  height: 200px;
-  outline: 1px solid black;
+  height: 150px;
+  /* outline: 1px solid black; */
 }
 
 #header1 img {
@@ -16,19 +17,53 @@
 
 #sidebar1 {
   width: 200px;
-  height: 400px;
-  outline: 1px solid black;
+  /* outline: 1px solid black; */
   float: left;
+
+  img {
+    width: 150px;
+    height: 150px;
+    display: block;
+  }
+
+  p {
+    text-align: justify;
+  }
 }
 #content1 {
-  height: 400px;
-  outline: 1px solid black;
-  /* float: left; */
+  width: 790px;
+  margin: 0px 200px;
+  font-size: 16px;
+  /* outline: 1px solid black; */
+
+  h1 {
+    margin-top: 0px;
+  }
+
+  p {
+    text-align: justify;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+    display: block;
+  }
 }
 .clearfix {
   clear: both;
 }
 #footer1 {
-  height: 100px;
-  outline: 1px solid black;
+  position: relative;
+  height: 50px;
+  /* outline: 1px solid black; */
+}
+
+/* center url at bottom of footer without flex/grid */
+#url {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
 }
