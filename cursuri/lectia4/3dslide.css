@@ -1,0 +1,50 @@
+@keyframes anim {
+  from {
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg) rotateX(0deg);
+  }
+}
+
+.wrapper {
+  position: relative;
+  width: 100px;
+  height: 200px;
+  margin: 150px 150px;
+  border: 1px solid black;
+
+  transform-origin: left;
+  transform-style: preserve-3d;
+  animation: anim 4s infinite linear;
+}
+
+.wrapper > div {
+  position: absolute;
+  width: 100px;
+  height: 200px;
+  color: white;
+  top: 0px;
+  left: 0px;
+
+  backface-visibility: visible;
+}
+
+.d1 {
+  transform: rotateY(30deg);
+  background-color: red;
+  transform-origin: left;
+}
+
+.d2 {
+  transform: rotateY(120deg);
+  background-color: green;
+  transform-origin: left;
+}
+
+.d3 {
+  transform: rotateY(270deg);
+  background-color: blue;
+  transform-origin: left;
+}
