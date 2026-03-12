@@ -1,7 +1,7 @@
 #wrapper {
   width: 1000px;
   margin: 0px auto;
-  outline: 1px solid black;  
+  outline: 1px solid black;
 }
 
 #header {
@@ -18,7 +18,7 @@
 #navbar {
   list-style: none;
   outline: 1px solid black;
-  margin: 2px 0;  
+  margin: 2px 0;
   padding: 2px 0;
   width: 500px;
   display: flex;
@@ -41,8 +41,6 @@
 #left,
 #right {
   width: 200px;
-  /* height: 400px; */
-  /* outline: 1px solid black; */
 }
 
 #left {
@@ -62,7 +60,7 @@ and in the normal box‑model the top margin of a block‑level child collapses 
 #content {
   width: 600px;
   margin: 0px 200px;
-  border: 1px solid black;
+  outline: 1px solid black;
   box-sizing: border-box;
 
   p {
@@ -84,5 +82,5 @@ and in the normal box‑model the top margin of a block‑level child collapses 
 }
 
 .clearfix {
-  clear: both; 
+  clear: both;
 }
