@@ -1,0 +1,42 @@
+#div1 {
+  width: 100px;
+  height: 100px;
+  border: 1px solid red;
+  margin: 100px;
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+#div1:hover {
+  /* transform: rotate(30deg);
+  transform: rotate(-30deg);
+  transform: scaleX(2);
+  transform: scaleY(2);
+  transform: scale(2, 3);
+  transform: scale(2);
+  transform: scale(0.5); */
+}
+
+#div1:hover {
+  /* transform: scaleX(-1); */
+  /* transform: scaleY(-1); */
+  /* transform: skew(45deg); */
+  /* transform: skewX(45deg); */
+  /* transform: skewY(60deg); */
+  /* transform: skew(60deg, 45deg); */
+  /* transform: skew(60deg); */
+  /* transform: translateX(10px); */
+  /* transform: translateY(100px); */
+  /* transform: translateX(-10px); */
+  /* transform: translateY(-50px); */
+  /* transform: translate(50px, 10px); */
+
+  /* Gresit */
+  /* transform: rotate(45deg); */
+  /* transform: translate(50px); */
+
+  transform: rotate(45deg) translate(50px);
+}

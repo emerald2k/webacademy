@@ -1,0 +1,29 @@
+@keyframes anim {
+  from {
+    /* transform: rotate(0deg); */
+    transform: rotateZ(0deg);
+  }
+
+  to {
+    /* transform: rotateX(60deg) rotateY(30deg); */
+    transform: rotateZ(180deg);
+  }
+}
+
+.wrapper {
+  width: 100px;
+  height: 100px;
+  margin: 50px 100px;
+  border: 1px solid blue;
+
+  transform: rotateZ(30deg);
+}
+
+.test {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  color: white;
+  backface-visibility: visible;
+  animation: anim 4s infinite alternate linear;
+}

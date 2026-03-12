@@ -1,0 +1,30 @@
+@keyframes anim {
+  from {
+    /* transform: rotate3d(0, 0, 0, 0deg); */
+    transform: rotate3d(1, 1, 1, 0deg);
+  }
+
+  to {
+    /* transform: rotate3d(0, 0, 1, 45deg); */
+    transform: rotate3d(1, 0, 0, 45deg);
+  }
+}
+
+.wrapper {
+  width: 100px;
+  height: 100px;
+  margin: 50px 100px;
+  border: 1px solid blue;
+
+  transform: rotateZ(30deg);
+}
+
+.test {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  color: white;
+  backface-visibility: visible;
+  transform-style: preserve-3d;
+  animation: anim 1s infinite alternate linear;
+}
