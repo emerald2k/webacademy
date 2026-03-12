@@ -1,0 +1,30 @@
+@keyframes anim {
+  from {
+    margin-left: 3px;
+    height: 50px;
+    background: white;
+  }
+
+  to {
+    margin-left: 200px;
+    height: 100px;
+    background: red;
+  }
+}
+#d1 {
+  margin-left: 100px;
+  animation-name: anim;
+  animation-duration: 4s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: backwards;
+  animation-play-state: running;
+}
+/* #d1:hover {
+  animation-play-state: running;
+}
+#d1 {
+  height: 50px;
+  border: 1px solid red;
+} */

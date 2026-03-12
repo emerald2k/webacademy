@@ -1,0 +1,34 @@
+@keyframes anim1 {
+  from {
+    margin-left: 3px;
+  }
+
+  to {
+    margin-left: 200px;
+  }
+}
+
+@keyframes anim2 {
+  from {
+    background: white;
+  }
+  to {
+    background: red;
+  }
+}
+#d1 {
+  animation-name: anim1, anim2;
+  animation-duration: 4s, 1s;
+  animation-timing-function: ease, ease;
+  animation-iteration-count: infinite, infinite;
+  animation-direction: normal, normal;
+  animation-fill-mode: backwards, backwards;
+  animation-play-state: running, running;
+}
+/* #d1:hover {
+  animation-play-state: running;
+}
+#d1 {
+  height: 50px;
+  border: 1px solid red;
+} */

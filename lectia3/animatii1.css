@@ -1,0 +1,29 @@
+@keyframes anim {
+  from {
+    width: 50px;
+  }
+
+  to {
+    width: 400px;
+  }
+}
+@-moz-keyframes anim {
+  from {
+    width: 50px;
+  }
+
+  to {
+    width: 400px;
+  }
+}
+#d1 {
+  animation: anim 2s ease infinite alternate;
+  animation-play-state: paused;
+}
+#d1:hover {
+  animation-play-state: running;
+}
+#d1 {
+  height: 50px;
+  border: 1px solid red;
+}
