@@ -1,0 +1,25 @@
+#div14 {
+  border: 1px solid red;
+  position: relative;
+  width: 80%;
+  height: 40px;
+  top: 30%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#div14::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 0;
+  background-color: red;
+  transition: width;
+  transition-duration: 2s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+}
+
+#div14:hover::before {
+  width: 100%;
+}

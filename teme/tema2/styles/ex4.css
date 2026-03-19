@@ -1,0 +1,16 @@
+#div4 {
+  box-sizing: border-box;
+  border: 1px solid red;
+  color: red;
+  width: 600px;
+  height: 100px;
+  transition-property: width margin-left;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+}
+
+#div4:hover {
+  width: 60%;
+  margin-left: 20%;
+}
