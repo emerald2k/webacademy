@@ -78,6 +78,7 @@ article {
 
 .body-text {
   margin-bottom: 10px;
+  text-align: justify;
 }
 
 /* Left Column Specifics */
