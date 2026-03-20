@@ -1,0 +1,16 @@
+#div16 {
+  border: 1px solid red;
+  position: relative;
+  width: 80%;
+  height: 40px;
+  top: 30%;
+  margin: 0 auto;
+  /* transition: width;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+  transition-delay: 0s; */
+}
+
+#div16:hover {
+  width: 100%;
+}

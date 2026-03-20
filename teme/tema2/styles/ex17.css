@@ -1,0 +1,52 @@
+#div17 {
+  border: 2px solid green;
+  position: relative;
+  width: 900px;
+  height: 400px;
+  margin: 0 auto;
+}
+#div17 > div {
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid red;
+  width: 200px;
+  height: 60px;
+  transition: top, left;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+}
+
+.black {
+  background-color: black;
+  color: white;
+  z-index: 1;
+}
+
+#white {
+  background-color: white;
+  color: black;
+  z-index: 2;
+  top: 180px;
+  left: 350px;
+}
+
+#black1 {
+  top: 0px;
+  left: 500px;
+}
+
+#black2 {
+  top: 180px;
+  left: 40px;
+}
+
+#white:hover {
+  ~ #black1 {
+    top: 240px;
+  }
+
+  ~ #black2 {
+    left: 500px;
+  }
+}

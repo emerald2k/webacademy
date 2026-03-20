@@ -1,0 +1,15 @@
+#div3 {
+  box-sizing: border-box;
+  border: 1px solid red;
+  color: red;
+  width: 600px;
+  height: 100px;
+  transition-property: width;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+}
+
+#div3:hover {
+  width: 100%;
+}

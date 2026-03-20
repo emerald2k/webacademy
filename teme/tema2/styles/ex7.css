@@ -1,0 +1,27 @@
+body {
+  /* overflow: hidden; */
+}
+#div7 {
+  border: 1px solid red;
+  width: 600px;
+  height: 100px;
+  position: relative;
+}
+
+#text {
+  position: absolute;
+  width: 100%;
+  font-size: 20px;
+  top: 30%;
+  left: 100vw;
+  transition-property: left;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+}
+
+#div7:hover {
+  #text {
+    left: 40%;
+  }
+}

@@ -1,0 +1,15 @@
+#div6 {
+  box-sizing: border-box;
+  border: 1px solid red;
+  color: red;
+  width: 600px;
+  height: 100px;
+  transition-property: width;
+  transition-duration: 2s;
+  transition-timing-function: ease;
+  transition-delay: 2s;
+}
+
+#div6:hover {
+  width: 100%;
+}

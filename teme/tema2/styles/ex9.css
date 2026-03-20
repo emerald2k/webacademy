@@ -1,0 +1,23 @@
+#div9 {
+  border: 2px solid green;
+}
+
+#div9 > div {
+  border: 2px solid red;
+  width: 50%;
+  height: 40px;
+  margin-top: 20px;
+  margin-left: 40px;
+  transition-property: width;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+}
+
+#div9 > div:last-child {
+  margin-bottom: 20px;
+}
+
+#div9:hover > div {
+  width: calc(100% - 80px);
+}

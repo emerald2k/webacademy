@@ -1,0 +1,14 @@
+#div15 {
+  box-sizing: border-box;
+  border: 1px solid red;
+  width: 600px;
+  height: 50px;
+  transition-property: width;
+  transition-duration: 2s;
+  transition-timing-function: cubic-bezier(0, -0.01, 0.66, -0.59);
+  transition-delay: 0s;
+}
+
+#div15:hover {
+  width: 100%;
+}

@@ -1,0 +1,21 @@
+#div11 > div {
+  border: 1px solid red;
+  width: 50%;
+  height: 40px;
+  margin-top: 20px;
+  margin-left: 40px;
+  transition-property: width;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+}
+
+#div11 > div:last-child {
+  margin-bottom: 20px;
+}
+
+#div11 > div:hover {
+  ~ div {
+    width: calc(100% - 80px);
+  }
+}
