@@ -98,18 +98,160 @@
 //   }
 // }
 
-var lang = 'ru';
-switch (lang) {
-  case 'en':
-    alert('Hello');
-    break;
-  case 'ru':
-    alert('Privet');
-    break;
-  case 'ro':
-    alert('Salut');
-    break;
-  default:
-    alert('Unknown language');
-    break;
+// var lang = 'ru';
+// switch (lang) {
+//   case 'en':
+//     alert('Hello');
+//     break;
+//   case 'ru':
+//     alert('Privet');
+//     break;
+//   case 'ro':
+//     alert('Salut');
+//     break;
+//   default:
+//     alert('Unknown language');
+//     break;
+// }
+
+// var i=0;
+// while(i<5) {
+//   i++;
+//   alert(i);
+// }
+
+// for (var i=0; i<10; i++) {
+//   alert(i);
+// }
+
+// for (var i = 0; i < 10; i++);
+// alert(i);
+
+// for (var i = 0, j = 2; i < 10; i++, j++, i = i + j) {
+//   alert(i, j);
+// }
+
+// var arr = [];
+// for (i = 0; i < 10; i++) {
+//   arr[i] = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+// }
+// alert(arr);
+
+// var str = 'aaa@bbb@ccc';
+// alert(str.replace('@', '!'));
+// alert(str.replace(/@/g, '!'));
+
+// var str = 'aaa bbb ccc';
+// alert(str.substr(4, 3));
+// alert(str.substring(4, 7));
+// alert(str.slice(4, 7));
+
+/*
+var str = '2025-12-31';
+var arr = str.split('-');
+alert(arr);
+*/
+
+// var a = ['a', 'b', 'c'];
+// var b = [1, 2, 3];
+
+// var c = a.concat(b);
+// alert(c);
+
+// var c = b.concat(b);
+// alert(c);
+
+// var arr = ['a', 'b', 'c'];
+// arr.push(1, 2, 3);
+// alert(arr);
+
+// var str = 'hello';
+// str = str[0].toUpperCase() + str.substr(1);
+// alert(str);
+
+// var str = 'hello';
+// str = str.split('');
+// str[0] = str[0].toUpperCase();
+// var result = str.join('');
+// alert(result);
+
+// function func(param) {
+//   if (param) return 'Corect!';
+//   alert('Hello World!');
+// }
+// let message = func(true);
+// alert(message); // Corect!
+// func(false); // Hello World!
+
+// var arr = ['a', 'b', 'c', 'd', 'c'];
+// var flag = false;
+// for (var i = 0; i < arr.length; i++) {
+//   if (arr[i] == 'c') {
+//     flag = true;
+//     break;
+//   }
+// }
+// if (flag === true) {
+//   alert('Este');
+// } else {
+//   alert('Nu');
+// }
+
+// for (var i = 1; i <= 9; i++) {
+//   for (var j = 1; j <= 3; j++) {
+//     document.write(i);
+//   }
+// }
+
+// var str = '';
+// for (var i = 0; i < 10; i++) {
+//   str = str + 'x';
+//   document.write(str + '<br>');
+// }
+
+// var str='';
+// for (var i=1; i<=9; i++) {
+//   str = str + i;
+// }
+
+// for (var i = 1; i <= 9; i++) {
+//   for (var j = 1; j <= i; j++) {
+//     document.write(i);
+//   }
+//   document.write('<br>');
+// }
+
+// var obj = { a: 1, b: 2, c: 3, d: 4, e: 5 };
+// var result = {};
+// for (var key in obj) {
+//   result[obj[key]] = key;
+// }
+// console.log({ result });
+
+var arr = [12, 19, 28, 13, 14, 345];
+var result = [];
+
+for (var i = 0; i < 10; i++) {
+  if (inRange(arr[i])) {
+    result.push(arr[i]);
+  }
+}
+
+console.log({ result });
+
+function inRange(num) {
+  var sum = arraySum(getDigits(num));
+  return sum >= 1 && sum <= 9;
+}
+
+function getDigits(num) {
+  return String(num).split('');
+}
+
+function arraySum(arr) {
+  var sum = 0;
+  for (var i = 0; i < arr.length; i++) {
+    sum += Number(arr[i]);
+  }
+  return sum;
 }
