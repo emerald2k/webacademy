@@ -255,3 +255,12 @@ function arraySum(arr) {
   }
   return sum;
 }
+
+/* let a = [1, 2, 3];
+let b = [1, 2, 3];
+let c = a;
+
+console.log(a == b);
+console.log(a === b);
+console.log(a == c);
+console.log(a === c); */
