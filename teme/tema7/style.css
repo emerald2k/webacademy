@@ -1,4 +1,4 @@
-/* --- Base Reset --- */
+/* --- Base Reset & Background (Keep previous styles) --- */
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +12,6 @@ html {
   overflow: hidden;
 }
 
-/* --- Background & Overlay --- */
 .hero-background {
   background: url('https://i.postimg.cc/fwD1MvLM/bg.jpg') no-repeat center
     center;
@@ -23,16 +22,29 @@ html {
   position: relative;
 }
 
-.floor-overlay {
+/* --- New Clock Styles --- */
+#clock-container {
   position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 40vh;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-  pointer-events: none;
+  top: 30px;
+  right: 40px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 20;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
-/* --- Loader Styles --- */
+#digital-clock {
+  color: white;
+  font-family: 'Courier New', Courier, monospace; /* Prevents text jitter */
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Loader & Card Styles (Same as before) --- */
 #loader-wrapper {
   position: fixed;
   top: 0;
@@ -57,15 +69,19 @@ html {
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
   100% {
     transform: rotate(360deg);
   }
 }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
-/* --- Calendar Card --- */
 .calendar-card {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
@@ -108,6 +124,14 @@ html {
   margin-top: 5px;
 }
 
+.floor-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40vh;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -116,5 +140,16 @@ html {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Mobile optimization */
+@media (max-width: 600px) {
+  #clock-container {
+    top: 20px;
+    right: 20px;
+  }
+  #digital-clock {
+    font-size: 1.2rem;
   }
 }
