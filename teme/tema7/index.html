@@ -3,14 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dynamic Calendar | Modern View</title>
+    <title>Dynamic Calendar | Premium Edition</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div id="loader-wrapper">
+      <div class="spinner"></div>
+    </div>
+
     <main class="hero-background">
       <div class="floor-overlay"></div>
 
-      <article class="calendar-card" aria-label="Current Date">
+      <article
+        class="calendar-card"
+        id="main-card"
+        aria-label="Current Date"
+        style="display: none"
+      >
         <header class="calendar-header">
           <span id="month-name"></span>
         </header>

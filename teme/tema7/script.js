@@ -1,48 +1,55 @@
 'use strict';
 
-/**
- * Updates the calendar UI with the current system date.
- */
-function updateCalendar() {
-  const now = new Date();
+document.addEventListener('DOMContentLoaded', () => {
+  const loader = document.getElementById('loader-wrapper');
+  const card = document.getElementById('main-card');
 
-  const months = [
-    'JANUARY',
-    'FEBRUARY',
-    'MARCH',
-    'APRIL',
-    'MAY',
-    'JUNE',
-    'JULY',
-    'AUGUST',
-    'SEPTEMBER',
-    'OCTOBER',
-    'NOVEMBER',
-    'DECEMBER',
-  ];
+  // 1. Calculate and set the date immediately
+  const updateCalendar = () => {
+    const now = new Date();
+    const months = [
+      'JANUARY',
+      'FEBRUARY',
+      'MARCH',
+      'APRIL',
+      'MAY',
+      'JUNE',
+      'JULY',
+      'AUGUST',
+      'SEPTEMBER',
+      'OCTOBER',
+      'NOVEMBER',
+      'DECEMBER',
+    ];
+    const days = [
+      'Sunday',
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+    ];
 
-  const days = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ];
+    document.getElementById('month-name').textContent = months[now.getMonth()];
+    document.getElementById('day-name').textContent = days[now.getDay()];
+    document.getElementById('day-number').textContent = now.getDate();
+    document.getElementById('year').textContent = now.getFullYear();
+  };
 
-  // Select elements
-  const monthEl = document.getElementById('month-name');
-  const dayNameEl = document.getElementById('day-name');
-  const dayNumEl = document.getElementById('day-number');
-  const yearEl = document.getElementById('year');
+  updateCalendar();
 
-  // Inject data
-  if (monthEl) monthEl.textContent = months[now.getMonth()];
-  if (dayNameEl) dayNameEl.textContent = days[now.getDay()];
-  if (dayNumEl) dayNumEl.textContent = now.getDate();
-  if (yearEl) yearEl.textContent = now.getFullYear();
-}
+  // 2. Simulate a slight delay (optional) or wait for image load
+  // For production, we remove the loader once setup is done
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      loader.style.opacity = '0';
+      card.style.display = 'block';
 
-// Run on load
-document.addEventListener('DOMContentLoaded', updateCalendar);
+      // Clean up loader from DOM after fade out
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 500);
+    }, 800); // 800ms delay to ensure the smooth feel
+  });
+});
