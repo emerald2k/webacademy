@@ -12,7 +12,7 @@ html {
   overflow: hidden;
 }
 
-.hero-background {
+.background {
   background: url('https://i.postimg.cc/fwD1MvLM/bg.jpg') no-repeat center
     center;
   height: 100vh;
