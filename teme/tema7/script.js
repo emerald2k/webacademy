@@ -51,7 +51,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize
   updateCalendar();
   updateClock();
+
+  // Set Intervals
   setInterval(updateClock, 1000); // Refresh clock every second
+  setInterval(updateCalendar, 60 * 60 * 1000); // Refresh calendar every hour
 
   // Handle Reveal
   window.addEventListener('load', () => {
