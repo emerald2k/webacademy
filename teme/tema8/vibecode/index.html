@@ -3,17 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sequential Search Game</title>
+    <title>Sequential Speed Trainer</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   </head>
   <body>
     <div id="game-container">
-      <header>
-        <h1>Level: <span id="level-display">1</span></h1>
-        <p>Next Number: <span id="next-number">1</span></p>
-      </header>
+      <div id="stats-bar">
+        <div class="stat-item">
+          <label>LEVEL</label>
+          <span id="level-display">1</span>
+        </div>
+        <div class="stat-item">
+          <label>TIME</label>
+          <span id="timer-display">30</span>
+        </div>
+        <div class="stat-item">
+          <label>LIVES</label>
+          <span id="lives-display">❤️❤️❤️</span>
+        </div>
+      </div>
+
       <div id="grid-wrapper">
         <table id="game-grid"></table>
+      </div>
+
+      <div id="overlay" class="hidden">
+        <h2 id="overlay-text">GAME OVER</h2>
+        <p id="overlay-subtext">Focus and try again!</p>
+        <button onclick="location.reload()">RESTART GAME</button>
       </div>
     </div>
     <script src="script.js"></script>

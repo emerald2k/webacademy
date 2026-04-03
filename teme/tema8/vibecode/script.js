@@ -1,78 +1,106 @@
-class SequentialGame {
+class SpeedGame {
   constructor() {
     this.level = 1;
-    this.nextExpected = 1;
-    this.gridSize = 2; // Starts at 2x2
+    this.lives = 3;
+    this.nextValue = 1;
+    this.gridSize = 2;
+    this.timeLeft = 0;
+    this.timerId = null;
 
-    this.gridElement = document.getElementById('game-grid');
-    this.levelDisplay = document.getElementById('level-display');
-    this.nextDisplay = document.getElementById('next-number');
+    this.els = {
+      grid: document.getElementById('game-grid'),
+      level: document.getElementById('level-display'),
+      timer: document.getElementById('timer-display'),
+      lives: document.getElementById('lives-display'),
+      overlay: document.getElementById('overlay'),
+      overlayText: document.getElementById('overlay-text'),
+    };
 
-    this.initLevel();
+    this.init();
   }
 
-  initLevel() {
-    this.nextExpected = 1;
-    this.updateUI();
-    this.renderGrid();
+  init() {
+    this.nextValue = 1;
+    this.els.level.textContent = this.level;
+    this.els.lives.textContent = '❤️'.repeat(this.lives);
+
+    // Timer Logic: Level 1 starts at 30, drops by 3 each level (min 5)
+    this.timeLeft = Math.max(30 - (this.level - 1) * 3, 5);
+    this.els.timer.textContent = this.timeLeft;
+
+    this.createBoard();
+    this.startClock();
   }
 
-  updateUI() {
-    this.levelDisplay.textContent = this.level;
-    this.nextDisplay.textContent = this.nextExpected;
+  startClock() {
+    if (this.timerId) clearInterval(this.timerId);
+    this.timerId = setInterval(() => {
+      this.timeLeft--;
+      this.els.timer.textContent = this.timeLeft;
+      if (this.timeLeft <= 0) this.stopGame('TIME EXPIRED');
+    }, 1000);
   }
 
-  renderGrid() {
-    const totalCells = this.gridSize * this.gridSize;
-    const numbers = Array.from({ length: totalCells }, (_, i) => i + 1);
-    this.shuffle(numbers);
+  createBoard() {
+    const total = this.gridSize * this.gridSize;
+    const vals = Array.from({ length: total }, (_, i) => i + 1).sort(
+      () => Math.random() - 0.5,
+    );
 
-    this.gridElement.innerHTML = '';
+    this.els.grid.innerHTML = '';
+    this.els.grid.classList.remove('level-transition');
 
     for (let r = 0; r < this.gridSize; r++) {
-      const row = document.createElement('tr');
+      const tr = document.createElement('tr');
       for (let c = 0; c < this.gridSize; c++) {
-        const cell = document.createElement('td');
-        const val = numbers[r * this.gridSize + c];
-        cell.textContent = val;
-        cell.addEventListener('click', () => this.handleCellClick(cell, val));
-        row.appendChild(cell);
+        const td = document.createElement('td');
+        const num = vals[r * this.gridSize + c];
+        td.textContent = num;
+        td.onclick = () => this.checkClick(td, num);
+        tr.appendChild(td);
       }
-      this.gridElement.appendChild(row);
+      this.els.grid.appendChild(tr);
     }
   }
 
-  handleCellClick(cell, value) {
-    if (value === this.nextExpected) {
+  checkClick(cell, val) {
+    if (cell.classList.contains('correct')) return;
+
+    if (val === this.nextValue) {
       cell.classList.add('correct');
-      this.nextExpected++;
+      this.nextValue++;
 
-      const totalCells = this.gridSize * this.gridSize;
-      if (this.nextExpected > totalCells) {
-        // Level Cleared
-        setTimeout(() => this.nextLevel(), 300);
-      } else {
-        this.updateUI();
+      if (this.nextValue > this.gridSize * this.gridSize) {
+        this.levelUp();
       }
+    } else {
+      this.lives--;
+      this.els.lives.textContent = '❤️'.repeat(this.lives);
+      this.els.grid.classList.add('shake');
+      setTimeout(() => this.els.grid.classList.remove('shake'), 400);
+
+      if (this.lives <= 0) this.stopGame('NO LIVES LEFT');
     }
   }
 
-  nextLevel() {
-    this.level++;
-    this.gridSize++;
-    this.initLevel();
+  levelUp() {
+    clearInterval(this.timerId);
+    confetti({ particleCount: 120, spread: 60, origin: { y: 0.7 } });
+
+    this.els.grid.classList.add('level-transition');
+
+    setTimeout(() => {
+      this.level++;
+      this.gridSize++;
+      this.init();
+    }, 800);
   }
 
-  // Fisher-Yates Shuffle Algorithm
-  shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
+  stopGame(reason) {
+    clearInterval(this.timerId);
+    this.els.overlayText.textContent = reason;
+    this.els.overlay.classList.remove('hidden');
   }
 }
 
-// Instantiate the game when the DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-  new SequentialGame();
-});
+window.onload = () => new SpeedGame();
