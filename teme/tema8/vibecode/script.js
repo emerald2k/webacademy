@@ -1,19 +1,18 @@
-class ProTrainer {
+class AimGame {
   constructor() {
     this.level = 1;
     this.lives = 3;
     this.gridSize = 2;
     this.nextValue = 1;
-    this.timeLeft = 0;
+    this.timeLeft = 35;
     this.timerId = null;
 
-    this.allCorrectClicks = 0;
-    this.startTime = Date.now();
+    this.correctClicksCount = 0;
+    this.gameStartTime = Date.now();
     this.clickHistory = [];
     this.peakAPM = 0;
 
-    // Level Colors: Red, Green, Blue, Gold, Purple, Cyan...
-    this.colors = [
+    this.levelColors = [
       '#ff3b3b',
       '#4cd137',
       '#00d2ff',
@@ -30,9 +29,11 @@ class ProTrainer {
       lives: document.getElementById('lives-display'),
       apm: document.getElementById('apm-display'),
       training: document.getElementById('training-mode'),
+      overlay: document.getElementById('overlay'),
       peak: document.getElementById('peak-apm'),
       avg: document.getElementById('avg-apm'),
-      overlay: document.getElementById('overlay'),
+      fLevel: document.getElementById('final-level'),
+      fTime: document.getElementById('time-spent'),
     };
 
     this.init();
@@ -44,7 +45,6 @@ class ProTrainer {
     this.updateTheme();
     this.els.level.textContent = this.level;
     this.els.lives.textContent = '❤️'.repeat(this.lives);
-    this.timeLeft = Math.max(35 - this.level * 2, 5);
     this.els.timer.textContent = this.timeLeft;
 
     this.renderBoard();
@@ -53,10 +53,11 @@ class ProTrainer {
   }
 
   updateTheme() {
-    // Cycle through colors based on level
-    const colorIndex = (this.level - 1) % this.colors.length;
-    const newColor = this.colors[colorIndex];
-    document.documentElement.style.setProperty('--primary-accent', newColor);
+    const index = (this.level - 1) % this.levelColors.length;
+    document.documentElement.style.setProperty(
+      '--primary-accent',
+      this.levelColors[index],
+    );
   }
 
   startAPMEngine() {
@@ -67,9 +68,9 @@ class ProTrainer {
 
       this.els.apm.textContent = currentAPM;
       this.els.apm.className = '';
-      if (currentAPM < 80) this.els.apm.classList.add('apm-low');
-      else if (currentAPM < 150) this.els.apm.classList.add('apm-med');
-      else if (currentAPM < 250) this.els.apm.classList.add('apm-high');
+      if (currentAPM < 100) this.els.apm.classList.add('apm-low');
+      else if (currentAPM < 180) this.els.apm.classList.add('apm-med');
+      else if (currentAPM < 300) this.els.apm.classList.add('apm-high');
       else this.els.apm.classList.add('apm-pro');
 
       if (currentAPM > this.peakAPM) this.peakAPM = currentAPM;
@@ -106,11 +107,9 @@ class ProTrainer {
   }
 
   applyTrainingHighlight() {
-    // Remove old highlights
     document
       .querySelectorAll('.training-highlight')
       .forEach((el) => el.classList.remove('training-highlight'));
-
     if (this.els.training.checked) {
       const target = Array.from(document.querySelectorAll('td')).find(
         (el) => parseInt(el.dataset.val) === this.nextValue,
@@ -124,9 +123,8 @@ class ProTrainer {
 
     if (val === this.nextValue) {
       el.classList.add('correct');
-      el.classList.remove('training-highlight');
       this.clickHistory.push(Date.now());
-      this.allCorrectClicks++;
+      this.correctClicksCount++;
       this.nextValue++;
 
       if (this.nextValue > this.gridSize * this.gridSize) {
@@ -145,7 +143,11 @@ class ProTrainer {
 
   nextLevel() {
     clearInterval(this.timerId);
-    confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+    confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
+
+    const levelBonus = Math.floor(5 + (this.level - 1) / 3);
+    this.timeLeft += levelBonus;
+
     setTimeout(() => {
       this.level++;
       this.gridSize++;
@@ -153,20 +155,36 @@ class ProTrainer {
     }, 600);
   }
 
+  formatTime(seconds) {
+    const h = Math.floor(seconds / 3600)
+      .toString()
+      .padStart(2, '0');
+    const m = Math.floor((seconds % 3600) / 60)
+      .toString()
+      .padStart(2, '0');
+    const s = Math.floor(seconds % 60)
+      .toString()
+      .padStart(2, '0');
+    return `${h}:${m}:${s}`;
+  }
+
   gameOver() {
     clearInterval(this.timerId);
-    const totalMins = (Date.now() - this.startTime) / 60000;
-    const avgAPM = Math.round(this.allCorrectClicks / totalMins);
+    const sessionSecs = Math.round((Date.now() - this.gameStartTime) / 1000);
+    const avgAPM = Math.round(
+      this.correctClicksCount / (sessionSecs / 60) || 0,
+    );
 
     this.els.peak.textContent = this.peakAPM;
     this.els.avg.textContent = avgAPM;
+    this.els.fLevel.textContent = this.level;
+    this.els.fTime.textContent = this.formatTime(sessionSecs);
     this.els.overlay.classList.remove('hidden');
   }
 }
 
 window.onload = () => {
-  const game = new ProTrainer();
-  // Re-apply highlight if player toggles mode during play
+  const game = new AimGame();
   document.getElementById('training-mode').onchange = () =>
     game.applyTrainingHighlight();
 };

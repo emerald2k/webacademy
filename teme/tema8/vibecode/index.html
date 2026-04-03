@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pro Aim & APM Trainer</title>
+    <title>Pro Aim & Reflex Trainer</title>
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   </head>
@@ -17,7 +17,7 @@
           </label>
           <span class="label-text">TRAINING MODE</span>
           <p class="desc">
-            Highlights next target instantly for aim calibration.
+            Instantly highlights the next target for calibration.
           </p>
         </div>
       </aside>
@@ -48,12 +48,16 @@
       </main>
 
       <div id="overlay" class="hidden">
-        <h2 id="overlay-text">SESSION COMPLETE</h2>
-        <div id="final-stats">
-          <p>Peak APM: <span id="peak-apm">0</span></p>
-          <p>Average APM: <span id="avg-apm">0</span></p>
+        <div class="result-card">
+          <h2 id="overlay-text">SESSION ENDED</h2>
+          <div id="final-stats">
+            <p>Level Reached: <span id="final-level">1</span></p>
+            <p>Total Time: <span id="time-spent">00:00:00</span></p>
+            <p>Peak APM: <span id="peak-apm">0</span></p>
+            <p>Average APM: <span id="avg-apm">0</span></p>
+          </div>
+          <button onclick="location.reload()">RESTART WARMUP</button>
         </div>
-        <button onclick="location.reload()">RESTART TRAINING</button>
       </div>
     </div>
     <script src="script.js"></script>
