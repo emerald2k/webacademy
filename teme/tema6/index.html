@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tema 6</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="text1">Cand faceti click pe buton, textul va fi schimbat.</div>
+    <br />
+    <button id="button1" onclick="ex1()"><b>Apasa-l!</b></button>
+    <hr />
+    <div id="text2">Cand faceti click pe buton, textul va fi schimbat.</div>
+    <br />
+    <button id="button2"><b>Apasa-l!</b></button>
+    <hr />
+    <div id="text3">
+      Cand faceti click pe buton, paragraful va deveni H3, dar textul nu se va
+      schimba.
+    </div>
+    <br />
+    <button id="button3"><b>Apasa-l!</b></button>
+    <hr />
+    <div>
+      <input type="text" name="operator1" id="" /> +
+      <input type="text" name="operator2" id="" /> =
+      <span id="result4"><b>?</b></span>
+    </div>
+    <br />
+    <button id="button4"><b>Calculeaza</b></button>
+    <hr />
+    <div id="wrapper5">
+      <p>
+        Cand faceti click pe buton, acest text din fiecare paragraph se va
+        schimba
+      </p>
+      <p>
+        Cand faceti click pe buton, acest text din fiecare paragraph se va
+        schimba
+      </p>
+      <p>
+        Cand faceti click pe buton, acest text din fiecare paragraph se va
+        schimba
+      </p>
+      <p>
+        Cand faceti click pe buton, acest text din fiecare paragraph se va
+        schimba
+      </p>
+    </div>
+    <h2>H2 nu se schimba acest text!</h2>
+    <button id="button5"><b>Apasa!</b></button>
+    <hr />
+    <p id="p6">Paragraf cu class="myclass"</p>
+    <button id="button6" onclick="displayClass(p6)">
+      <b>Faceti click si voi afisa clasa de pe paragraf</b>
+    </button>
+    <hr />
+    <p id="p7" class="myclass2">
+      Paragraf cu class="myclass2". Clasa seteaza culoarea textului in rosu.
+    </p>
+    <button id="button7" onclick="displayClass(p7)">
+      Faceti click si voi afisa clasa de pe paragraf
+    </button>
+    <button id="button8" onclick="removeClass(p7)">
+      Faceti click si voi elimina clasa de pe paragraf
+    </button>
+    <hr />
+    <input type="text" id="text8" /><span id="result8"><b>?</b></span>
+    <hr />
+    <div id="links">
+      <div><a href="#">Link 1</a></div>
+      <div><a href="#">Link 2</a></div>
+      <div><a href="#">Link 3</a></div>
+    </div>
+    <button id="button9" onclick="addLinks()">Apasa!</button>
+    <hr />
+    <div id="p10">Cand faceti click pe buton, textul va fi schimbat.</div>
+    <button id="button10" style="width: 400px">Apasa!</button>
+    <hr />
+    <div id="container11">
+      <p>Simplu paragraf</p>
+      <p>Simplu paragraf</p>
+      <p>Simplu paragraf</p>
+      <p>Simplu paragraf</p>
+      <p>Simplu paragraf</p>
+      <p>Simplu paragraf</p>
+    </div>
+    <button id="button11" onclick="numberParagraphs()">
+      Number Paragraphs!
+    </button>
+    <button id="button12" onclick="appendNumberToParagraphs()">
+      Append Numbers to Paragraphs!
+    </button>
+    <hr />
+    <script src="ex1.js"></script>
+    <script src="ex2.js"></script>
+    <script src="ex3.js"></script>
+    <script src="ex4.js"></script>
+    <script src="ex5.js"></script>
+    <script src="ex6.js"></script>
+    <script src="ex7.js"></script>
+    <script src="ex8.js"></script>
+    <script src="ex9.js"></script>
+    <script src="ex10.js"></script>
+    <script src="ex11.js"></script>
+  </body>
+</html>

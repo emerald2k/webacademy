@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>Tema 7 | Dynamic Calendar & Clock</title>
+  </head>
+  <body>
+    <div id="loader-wrapper">
+      <div class="spinner"></div>
+    </div>
+
+    <main class="background">
+      <div id="clock-container" style="display: none">
+        <span id="digital-clock">00:00:00</span>
+      </div>
+
+      <div class="floor-overlay"></div>
+
+      <article class="calendar-card" id="main-card" style="display: none">
+        <header class="calendar-header">
+          <span id="month-name"></span>
+        </header>
+        <section class="calendar-body">
+          <p id="day-name"></p>
+          <h1 id="day-number"></h1>
+          <p id="year"></p>
+        </section>
+      </article>
+    </main>
+
+    <script type="module" src="/src/script.js"></script>
+  </body>
+</html>
