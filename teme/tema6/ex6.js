@@ -1,9 +1,14 @@
 let button6 = document.getElementById('button6');
-let p = document.getElementById('p6');
+let p6 = document.getElementById('p6');
 let CLASS_NAME = 'myclass';
-p.className = CLASS_NAME;
+p6.className = CLASS_NAME;
 
-button6.addEventListener('click', function () {
-  let p = document.querySelector(`.${CLASS_NAME}`);
-  alert(p.className);
-});
+// button6.addEventListener('click', function () {
+//   let p6 = document.querySelector(`.${CLASS_NAME}`);
+//   alert(p6.className);
+// });
+
+function displayClass(node) {
+  let className = node.className;
+  alert(className);
+}
