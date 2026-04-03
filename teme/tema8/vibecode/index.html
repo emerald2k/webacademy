@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sequential Speed Trainer</title>
+    <title>Elite APM & Reaction Trainer</title>
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   </head>
@@ -13,6 +13,10 @@
         <div class="stat-item">
           <label>LEVEL</label>
           <span id="level-display">1</span>
+        </div>
+        <div class="stat-item">
+          <label>LIVE APM</label>
+          <span id="apm-display" class="apm-low">0</span>
         </div>
         <div class="stat-item">
           <label>TIME</label>
@@ -29,9 +33,12 @@
       </div>
 
       <div id="overlay" class="hidden">
-        <h2 id="overlay-text">GAME OVER</h2>
-        <p id="overlay-subtext">Focus and try again!</p>
-        <button onclick="location.reload()">RESTART GAME</button>
+        <h2 id="overlay-text">SESSION COMPLETE</h2>
+        <div id="final-stats">
+          <p>Peak APM: <span id="peak-apm" class="apm-blue">0</span></p>
+          <p>Average APM: <span id="avg-apm">0</span></p>
+        </div>
+        <button onclick="location.reload()">RESTART TRAINING</button>
       </div>
     </div>
     <script src="script.js"></script>

@@ -1,15 +1,19 @@
 :root {
   --primary-red: #ff3b3b;
-  --bg-dark: #1a1a1a;
-  --card-bg: #2d2d2d;
+  --bg-dark: #0f0f0f;
+  --card-bg: #1a1a1a;
   --text-main: #ffffff;
-  --accent-gold: #ffcc00;
+  /* APM Colors */
+  --apm-low: #ff4d4d;
+  --apm-med: #ffcc00;
+  --apm-high: #4cd137;
+  --apm-pro: #00d2ff;
 }
 
 body {
   background-color: var(--bg-dark);
   color: var(--text-main);
-  font-family: 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Segoe UI', Impact, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,78 +24,110 @@ body {
 
 #game-container {
   background: var(--card-bg);
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
   position: relative;
-  width: fit-content;
-  min-width: 340px;
+  min-width: 480px;
 }
 
 #stats-bar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  background: #1e1e1e;
-  padding: 15px 10px;
-  border-radius: 12px;
-  margin-bottom: 25px;
-  border: 1px solid #444;
+  background: #000;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #333;
 }
 
 .stat-item {
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .stat-item label {
-  font-size: 0.7rem;
-  color: #888;
-  letter-spacing: 1.5px;
-  font-weight: 800;
+  font-size: 0.6rem;
+  color: #555;
+  letter-spacing: 2px;
+  font-weight: bold;
   margin-bottom: 4px;
 }
 
 .stat-item span {
-  font-size: 1.6rem;
-  font-weight: bold;
+  font-size: 1.8rem;
+  font-weight: 900;
   font-variant-numeric: tabular-nums;
+  transition: color 0.3s ease;
+}
+
+/* APM Tiers */
+.apm-low {
+  color: var(--apm-low);
+}
+.apm-med {
+  color: var(--apm-med);
+}
+.apm-high {
+  color: var(--apm-high);
+}
+.apm-blue {
+  color: var(--apm-pro);
+  text-shadow: 0 0 10px rgba(0, 210, 255, 0.6);
 }
 
 #timer-display {
-  color: var(--accent-gold);
+  color: #fff;
 }
 
 #game-grid {
   border-collapse: separate;
-  border-spacing: 10px;
+  border-spacing: 8px;
   margin: 0 auto;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 #game-grid td {
-  width: 70px;
-  height: 70px;
-  background: #444;
-  border-radius: 10px;
+  width: 60px;
+  height: 60px;
+  background: #252525;
+  border-radius: 4px;
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: bold;
-  cursor: pointer;
-  transition: all 0.1s ease;
+  cursor: crosshair;
+  transition:
+    background 0.1s,
+    transform 0.1s;
   user-select: none;
+  border: 1px solid #333;
 }
 
 #game-grid td.correct {
   background: var(--primary-red);
-  color: white;
-  transform: scale(0.92);
+  border-color: #ff0000;
+  transform: scale(0.9);
+}
+
+/* Hint Animation */
+.hint-pulse {
+  animation: pulse 1s infinite;
+  background: #444 !important;
+  border-color: var(--apm-pro) !important;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0px rgba(0, 210, 255, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 0 15px rgba(0, 210, 255, 0);
+  }
 }
 
 .shake {
-  animation: shake 0.4s;
+  animation: shake 0.2s ease-in-out;
 }
 @keyframes shake {
   0%,
@@ -99,16 +135,11 @@ body {
     transform: translateX(0);
   }
   25% {
-    transform: translateX(-8px);
+    transform: translateX(-5px);
   }
   75% {
-    transform: translateX(8px);
+    transform: translateX(5px);
   }
-}
-
-.level-transition {
-  transform: scale(0.7);
-  opacity: 0;
 }
 
 .hidden {
@@ -121,36 +152,29 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.92);
+  background: rgba(0, 0, 0, 0.96);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
-  z-index: 10;
+  border-radius: 12px;
+  z-index: 100;
+  text-align: center;
 }
 
-#overlay h2 {
-  font-size: 2.2rem;
-  color: var(--primary-red);
-  margin: 0;
-}
-#overlay p {
-  color: #888;
-  margin-bottom: 20px;
+#final-stats p {
+  margin: 10px 0;
+  font-size: 1.2rem;
 }
 
 button {
   background: var(--primary-red);
-  color: white;
+  color: #fff;
   border: none;
-  padding: 12px 30px;
+  padding: 15px 40px;
   font-size: 1rem;
-  font-weight: bold;
-  border-radius: 30px;
+  font-weight: 900;
+  border-radius: 4px;
   cursor: pointer;
-}
-
-button:hover {
-  transform: scale(1.05);
+  margin-top: 20px;
 }
