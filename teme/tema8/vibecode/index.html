@@ -3,60 +3,103 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pro Aim & Reflex Trainer</title>
+    <title>Reflex Evolution v3.5</title>
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   </head>
   <body>
     <div id="game-container">
-      <aside id="side-panel">
-        <div class="toggle-container">
-          <label class="switch">
-            <input type="checkbox" id="training-mode" />
-            <span class="slider"></span>
-          </label>
-          <span class="label-text">TRAINING MODE</span>
-          <p class="desc">
-            Instantly highlights the next target for calibration.
-          </p>
+      <div id="welcome-screen">
+        <div class="hero">
+          <h1>REFLEX<span>EVOLUTION</span></h1>
+          <p class="version">NEURAL TACTICAL INTERFACE V3.5</p>
+        </div>
+        <div class="menu-options">
+          <div class="menu-card" onclick="game.start('normal')">
+            <strong>INITIATE PHASE</strong>
+            <span>Strategic progression & resource management</span>
+          </div>
+          <div class="menu-card" onclick="game.start('training')">
+            <strong>TRAINING SIM</strong>
+            <span>Infinite energy & persistent assistance</span>
+          </div>
+        </div>
+      </div>
+
+      <aside id="side-panel" class="hidden">
+        <div class="skill-group">
+          <div class="skill-card hint-theme">
+            <div class="label-row">
+              HINT LOGIC ENGINE <span id="hint-bank">0.0</span>
+            </div>
+            <div class="energy-track">
+              <div id="hint-fill" class="energy-fill"></div>
+            </div>
+          </div>
+          <div class="skill-card tact-theme">
+            <div class="label-row">
+              TACTICAL RESERVES <span id="tactical-energy">50</span>
+            </div>
+            <div class="energy-track">
+              <div id="tactical-fill" class="energy-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="command-deck">
+          <div class="cmd-sec">
+            <label>SYSTEM COMMANDS</label>
+            <div class="cmd-line"><kbd>SPACE</kbd> HOLD HINT</div>
+          </div>
+          <div class="cmd-sec">
+            <label>TACTICAL ABILITIES</label>
+            <div class="cmd-line"><kbd>Q</kbd> PATHFINDERSCAN 3 [40%]</div>
+            <div class="cmd-line"><kbd>W</kbd> OVERCLOCK+5s [60%]</div>
+          </div>
         </div>
       </aside>
 
-      <main id="main-stage">
-        <div id="stats-bar">
-          <div class="stat-item">
-            <label>LEVEL</label>
-            <span id="level-display">1</span>
+      <main id="main-stage" class="hidden">
+        <div id="pill-hud">
+          <div class="hud-item">
+            <label>LVL</label><span id="level-display">1</span>
           </div>
-          <div class="stat-item">
-            <label>LIVE APM</label>
-            <span id="apm-display" class="apm-low">0</span>
+          <div class="hud-item">
+            <label>APM</label><span id="apm-display">0</span>
           </div>
-          <div class="stat-item">
-            <label>TIME</label>
-            <span id="timer-display">30</span>
+          <div class="hud-item">
+            <label>TIME</label><span id="timer-display">35</span>
           </div>
-          <div class="stat-item">
-            <label>LIVES</label>
-            <span id="lives-display">❤️❤️❤️</span>
+          <div class="hud-sep"></div>
+          <div class="hud-item">
+            <label>LIFE</label><span id="lives-display">❤️❤️❤️</span>
           </div>
         </div>
-
-        <div id="grid-wrapper">
+        <div id="grid-container">
           <table id="game-grid"></table>
         </div>
       </main>
 
       <div id="overlay" class="hidden">
         <div class="result-card">
-          <h2 id="overlay-text">SESSION ENDED</h2>
-          <div id="final-stats">
-            <p>Level Reached: <span id="final-level">1</span></p>
-            <p>Total Time: <span id="time-spent">00:00:00</span></p>
-            <p>Peak APM: <span id="peak-apm">0</span></p>
-            <p>Average APM: <span id="avg-apm">0</span></p>
+          <h2 id="result-title">SESSION TERMINATED</h2>
+          <div class="results-grid">
+            <div class="res-box">
+              <label>LEVEL REACHED</label><span id="res-level">1</span>
+            </div>
+            <div class="res-box">
+              <label>TOTAL TIME</label><span id="res-time">0s</span>
+            </div>
+            <div class="res-box">
+              <label>PEAK APM</label><span id="res-peak">0</span>
+            </div>
+            <div class="res-box">
+              <label>AVG APM</label><span id="res-avg">0</span>
+            </div>
           </div>
-          <button onclick="location.reload()">RESTART WARMUP</button>
+          <button class="restart-btn" onclick="location.reload()">
+            RE-LINK INTERFACE
+          </button>
         </div>
       </div>
     </div>
