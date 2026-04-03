@@ -1,4 +1,4 @@
-class EliteTrainer {
+class ProTrainer {
   constructor() {
     this.level = 1;
     this.lives = 3;
@@ -7,14 +7,21 @@ class EliteTrainer {
     this.timeLeft = 0;
     this.timerId = null;
 
-    // APM & Analytics
     this.allCorrectClicks = 0;
     this.startTime = Date.now();
     this.clickHistory = [];
     this.peakAPM = 0;
 
-    // Hint Logic
-    this.hintTimeout = null;
+    // Level Colors: Red, Green, Blue, Gold, Purple, Cyan...
+    this.colors = [
+      '#ff3b3b',
+      '#4cd137',
+      '#00d2ff',
+      '#ffcc00',
+      '#a55eea',
+      '#2bcbba',
+      '#eb3b5a',
+    ];
 
     this.els = {
       grid: document.getElementById('game-grid'),
@@ -22,46 +29,51 @@ class EliteTrainer {
       timer: document.getElementById('timer-display'),
       lives: document.getElementById('lives-display'),
       apm: document.getElementById('apm-display'),
+      training: document.getElementById('training-mode'),
+      peak: document.getElementById('peak-apm'),
+      avg: document.getElementById('avg-apm'),
       overlay: document.getElementById('overlay'),
-      peakDisplay: document.getElementById('peak-apm'),
-      avgDisplay: document.getElementById('avg-apm'),
     };
 
     this.init();
-    this.startEngine();
+    this.startAPMEngine();
   }
 
   init() {
     this.nextValue = 1;
+    this.updateTheme();
     this.els.level.textContent = this.level;
     this.els.lives.textContent = '❤️'.repeat(this.lives);
-    this.timeLeft = Math.max(30 - (this.level - 1) * 2, 5);
+    this.timeLeft = Math.max(35 - this.level * 2, 5);
     this.els.timer.textContent = this.timeLeft;
 
     this.renderBoard();
-    this.resetHintTimer();
+    this.applyTrainingHighlight();
     this.startClock();
   }
 
-  startEngine() {
-    // High-frequency APM update (10fps)
+  updateTheme() {
+    // Cycle through colors based on level
+    const colorIndex = (this.level - 1) % this.colors.length;
+    const newColor = this.colors[colorIndex];
+    document.documentElement.style.setProperty('--primary-accent', newColor);
+  }
+
+  startAPMEngine() {
     setInterval(() => {
       const now = Date.now();
       this.clickHistory = this.clickHistory.filter((t) => now - t < 5000);
       const currentAPM = Math.round((this.clickHistory.length / 5) * 60);
 
-      this.updateAPMUI(currentAPM);
+      this.els.apm.textContent = currentAPM;
+      this.els.apm.className = '';
+      if (currentAPM < 80) this.els.apm.classList.add('apm-low');
+      else if (currentAPM < 150) this.els.apm.classList.add('apm-med');
+      else if (currentAPM < 250) this.els.apm.classList.add('apm-high');
+      else this.els.apm.classList.add('apm-pro');
+
       if (currentAPM > this.peakAPM) this.peakAPM = currentAPM;
     }, 100);
-  }
-
-  updateAPMUI(apm) {
-    this.els.apm.textContent = apm;
-    this.els.apm.className = ''; // Reset
-    if (apm < 60) this.els.apm.classList.add('apm-low');
-    else if (apm < 120) this.els.apm.classList.add('apm-med');
-    else if (apm < 200) this.els.apm.classList.add('apm-high');
-    else this.els.apm.classList.add('apm-blue');
   }
 
   startClock() {
@@ -84,29 +96,27 @@ class EliteTrainer {
       const tr = document.createElement('tr');
       for (let c = 0; c < this.gridSize; c++) {
         const td = document.createElement('td');
-        const val = nums[r * this.gridSize + c];
-        td.textContent = val;
-        td.dataset.val = val;
-        td.onmousedown = () => this.handleHit(td, val);
+        td.textContent = nums[r * this.gridSize + c];
+        td.dataset.val = nums[r * this.gridSize + c];
+        td.onmousedown = () => this.handleHit(td, parseInt(td.dataset.val));
         tr.appendChild(td);
       }
       this.els.grid.appendChild(tr);
     }
   }
 
-  resetHintTimer() {
-    clearTimeout(this.hintTimeout);
-    // Remove existing hints
+  applyTrainingHighlight() {
+    // Remove old highlights
     document
-      .querySelectorAll('.hint-pulse')
-      .forEach((el) => el.classList.remove('hint-pulse'));
+      .querySelectorAll('.training-highlight')
+      .forEach((el) => el.classList.remove('training-highlight'));
 
-    this.hintTimeout = setTimeout(() => {
+    if (this.els.training.checked) {
       const target = Array.from(document.querySelectorAll('td')).find(
         (el) => parseInt(el.dataset.val) === this.nextValue,
       );
-      if (target) target.classList.add('hint-pulse');
-    }, 3000);
+      if (target) target.classList.add('training-highlight');
+    }
   }
 
   handleHit(el, val) {
@@ -114,13 +124,15 @@ class EliteTrainer {
 
     if (val === this.nextValue) {
       el.classList.add('correct');
+      el.classList.remove('training-highlight');
       this.clickHistory.push(Date.now());
       this.allCorrectClicks++;
       this.nextValue++;
-      this.resetHintTimer();
 
       if (this.nextValue > this.gridSize * this.gridSize) {
         this.nextLevel();
+      } else {
+        this.applyTrainingHighlight();
       }
     } else {
       this.lives--;
@@ -133,7 +145,7 @@ class EliteTrainer {
 
   nextLevel() {
     clearInterval(this.timerId);
-    confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+    confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
     setTimeout(() => {
       this.level++;
       this.gridSize++;
@@ -143,16 +155,18 @@ class EliteTrainer {
 
   gameOver() {
     clearInterval(this.timerId);
-    clearTimeout(this.hintTimeout);
+    const totalMins = (Date.now() - this.startTime) / 60000;
+    const avgAPM = Math.round(this.allCorrectClicks / totalMins);
 
-    // Calculate Average APM
-    const totalMinutes = (Date.now() - this.startTime) / 60000;
-    const avgAPM = Math.round(this.allCorrectClicks / totalMinutes);
-
-    this.els.peakDisplay.textContent = this.peakAPM;
-    this.els.avgDisplay.textContent = avgAPM;
+    this.els.peak.textContent = this.peakAPM;
+    this.els.avg.textContent = avgAPM;
     this.els.overlay.classList.remove('hidden');
   }
 }
 
-window.onload = () => new EliteTrainer();
+window.onload = () => {
+  const game = new ProTrainer();
+  // Re-apply highlight if player toggles mode during play
+  document.getElementById('training-mode').onchange = () =>
+    game.applyTrainingHighlight();
+};

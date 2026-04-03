@@ -3,39 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Elite APM & Reaction Trainer</title>
+    <title>Pro Aim & APM Trainer</title>
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   </head>
   <body>
     <div id="game-container">
-      <div id="stats-bar">
-        <div class="stat-item">
-          <label>LEVEL</label>
-          <span id="level-display">1</span>
+      <aside id="side-panel">
+        <div class="toggle-container">
+          <label class="switch">
+            <input type="checkbox" id="training-mode" />
+            <span class="slider"></span>
+          </label>
+          <span class="label-text">TRAINING MODE</span>
+          <p class="desc">
+            Highlights next target instantly for aim calibration.
+          </p>
         </div>
-        <div class="stat-item">
-          <label>LIVE APM</label>
-          <span id="apm-display" class="apm-low">0</span>
-        </div>
-        <div class="stat-item">
-          <label>TIME</label>
-          <span id="timer-display">30</span>
-        </div>
-        <div class="stat-item">
-          <label>LIVES</label>
-          <span id="lives-display">❤️❤️❤️</span>
-        </div>
-      </div>
+      </aside>
 
-      <div id="grid-wrapper">
-        <table id="game-grid"></table>
-      </div>
+      <main id="main-stage">
+        <div id="stats-bar">
+          <div class="stat-item">
+            <label>LEVEL</label>
+            <span id="level-display">1</span>
+          </div>
+          <div class="stat-item">
+            <label>LIVE APM</label>
+            <span id="apm-display" class="apm-low">0</span>
+          </div>
+          <div class="stat-item">
+            <label>TIME</label>
+            <span id="timer-display">30</span>
+          </div>
+          <div class="stat-item">
+            <label>LIVES</label>
+            <span id="lives-display">❤️❤️❤️</span>
+          </div>
+        </div>
+
+        <div id="grid-wrapper">
+          <table id="game-grid"></table>
+        </div>
+      </main>
 
       <div id="overlay" class="hidden">
         <h2 id="overlay-text">SESSION COMPLETE</h2>
         <div id="final-stats">
-          <p>Peak APM: <span id="peak-apm" class="apm-blue">0</span></p>
+          <p>Peak APM: <span id="peak-apm">0</span></p>
           <p>Average APM: <span id="avg-apm">0</span></p>
         </div>
         <button onclick="location.reload()">RESTART TRAINING</button>
