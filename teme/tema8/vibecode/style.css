@@ -1,0 +1,48 @@
+:root {
+  --primary-red: #ff0000;
+  --border-color: #333;
+  --bg-color: #ffffff;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f4f4f4;
+}
+
+#game-container {
+  text-align: center;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#game-grid {
+  border-collapse: collapse;
+  margin: 20px auto;
+  user-select: none;
+}
+
+#game-grid td {
+  border: 1px solid var(--border-color);
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+}
+
+#game-grid td.correct {
+  background-color: var(--primary-red) !important;
+  color: white;
+}
+
+#game-grid td:hover:not(.correct) {
+  background-color: #f0f0f0;
+}
