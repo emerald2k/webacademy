@@ -1,0 +1,155 @@
+/* --- Base Reset & Background (Keep previous styles) --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,
+html {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.background {
+  background: url('https://i.postimg.cc/fwD1MvLM/bg.jpg') no-repeat center
+    center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* --- New Clock Styles --- */
+#clock-container {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 20;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+#digital-clock {
+  color: white;
+  font-family: 'Courier New', Courier, monospace; /* Prevents text jitter */
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Loader & Card Styles (Same as before) --- */
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0b0b0b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid #ff3b3b;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.calendar-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  width: 240px;
+  border-radius: 20px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  -webkit-box-reflect: below 2px
+    linear-gradient(transparent 50%, rgba(255, 255, 255, 0.3));
+  animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.calendar-header {
+  background: linear-gradient(135deg, #ff3b3b, #cc0000);
+  color: white;
+  padding: 15px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.calendar-body {
+  padding: 30px 20px;
+  color: #1a1a1a;
+}
+#day-number {
+  font-size: 4.5rem;
+  line-height: 1;
+  margin: 10px 0;
+  font-weight: 800;
+}
+#day-name {
+  color: #666;
+  font-size: 1.1rem;
+}
+#year {
+  color: #999;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+.floor-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40vh;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile optimization */
+@media (max-width: 600px) {
+  #clock-container {
+    top: 20px;
+    right: 20px;
+  }
+  #digital-clock {
+    font-size: 1.2rem;
+  }
+}
