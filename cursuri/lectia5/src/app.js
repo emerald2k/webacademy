@@ -271,11 +271,22 @@ function fibonacci(n) {
   if (n == 1) return 1;
   return fibonacci(n - 1) + fibonacci(n - 2);
 }
-console.log(fibonacci(10));
+// console.log(fibonacci(10));
 
 // calculate factorial
 function factorial(n) {
   if (n == 0) return 1;
   return n * factorial(n - 1);
 }
-console.log(factorial(5));
+// console.log(factorial(5));
+
+const v = [1, 2, 3, 4, 5];
+
+function maxProduct(arr) {
+  // max product of two numbers from the given array
+  let maxProduct = 0;
+  let sortedArr = arr.sort((a, b) => a - b);
+  return sortedArr[arr.length - 1] * sortedArr[arr.length - 2];
+}
+
+console.log(maxProduct(v));
