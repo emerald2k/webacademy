@@ -1,0 +1,21 @@
+@keyframes animEx1 {
+  from {
+    margin-left: 3px;
+  }
+
+  to {
+    margin-left: 600px;
+  }
+}
+
+#div1 {
+  animation-name: animEx1;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+}
+
+#div1 {
+  width: 50px;
+  height: 50px;
+  border: 1px solid red;
+}
