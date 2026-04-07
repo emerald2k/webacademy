@@ -62,9 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       loader.style.opacity = '0';
       card.style.display = 'block';
       clockContainer.style.display = 'block';
-      setTimeout(() => {
-        loader.style.display = 'none';
-      }, 500);
+      loader.style.display = 'none';
     }, 1000);
   });
 });
