@@ -1,0 +1,79 @@
+{
+  "storeName": "<script src=\"script.js\"></script>Tech Store",
+  "currency": "RON",
+  "vat": 0.19,
+  "users": [
+    {
+      "id": 1,
+      "name": "Alex Popescu",
+      "email": "alex@email.com"
+    },
+    {
+      "id": 2,
+      "name": "Maria Ionescu",
+      "email": "maria@email.com"
+    }
+  ],
+  "products": [
+    {
+      "id": 101,
+      "name": "Laptop Lenovo",
+      "price": 3500,
+      "stock": 5,
+      "category": "Laptopuri"
+    },
+    {
+      "id": 102,
+      "name": "Mouse Logitech",
+      "price": 120,
+      "stock": 10,
+      "category": "Accesorii"
+    },
+    {
+      "id": 103,
+      "name": "Tastatură mecanică",
+      "price": 300,
+      "stock": 0,
+      "category": "Accesorii"
+    },
+    {
+      "id": 104,
+      "name": "Monitor Samsung",
+      "price": 900,
+      "stock": 3,
+      "category": "Monitoare"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1001,
+      "userId": 1,
+      "status": "completed",
+      "items": [
+        {
+          "productId": 101,
+          "quantity": 1
+        },
+        {
+          "productId": 102,
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": 1002,
+      "userId": 2,
+      "status": "pending",
+      "items": [
+        {
+          "productId": 104,
+          "quantity": 1
+        },
+        {
+          "productId": 103,
+          "quantity": 1
+        }
+      ]
+    }
+  ]
+}

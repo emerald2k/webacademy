@@ -1,0 +1,26 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 1,
+      "name": "Laptop",
+      "price": 999.99,
+      "stock": 10,
+      "category": "electronics"
+    },
+    {
+      "id": 2,
+      "name": "Smartphone",
+      "price": 499.99,
+      "stock": 20,
+      "category": "electronics"
+    },
+    {
+      "id": 3,
+      "name": "Tablet",
+      "price": 299.99,
+      "stock": 15,
+      "category": "electronics"
+    }
+  ]
+}
