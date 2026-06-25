@@ -1,0 +1,21 @@
+.pagina {
+  padding: 30px;
+  font-family: Arial, sans-serif;
+}
+
+.titlu-pagina {
+  color: #1e293b;
+}
+
+.buton-salvare {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+.buton-salvare:hover {
+  background-color: #1d4ed8;
+}
