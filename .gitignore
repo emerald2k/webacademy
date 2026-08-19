@@ -7,15 +7,34 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs & caches
+dist/
+**/dist/
+dist-ssr/
+**/dist-ssr/
+.vite/
+**/.vite/
+.vite-temp/
+**/.vite-temp/
 *.local
+
+# Testing artifacts
+playwright-report/
+**/playwright-report/
+test-results/
+**/test-results/
+.playwright/
+**/.playwright/
 
 # Editor directories and files
 .vscode/*
+!.vscode/settings.json
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
