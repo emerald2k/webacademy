@@ -170,11 +170,11 @@ npx playwright test --ui
 
 ```
 webacademy/
-├── .vscode/               # VS Code workspace settings & formatting
 ├── .editorconfig          # Consistent coding styles across editors
 ├── .prettierrc            # Prettier configuration
 ├── .gitignore             # Comprehensive ignore rules
 ├── README.md              # Project documentation and curriculum index
+├── CHEATSHEET.md          # Comprehensive study cheat sheet & reference
 │
 ├── cursuri/               # 28 Structured Lessons (Lectii de curs)
 │   ├── lectia1/ ... lectia4/    # HTML5, CSS3, 3D Transforms

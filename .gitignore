@@ -31,9 +31,7 @@ test-results/
 **/.playwright/
 
 # Editor directories and files
-.vscode/*
-!.vscode/settings.json
-!.vscode/extensions.json
+.vscode/
 .idea/
 .DS_Store
 *.suo
