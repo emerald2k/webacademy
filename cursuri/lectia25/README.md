@@ -1,16 +1,30 @@
-# React + Vite
+# 🧪 Lecția 25: Testare E2E cu Playwright & Componente Interactive
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Această lecție explorează testarea automată End-to-End (E2E) a aplicațiilor web moderne folosind **Playwright**, alături de o suită de componente React interactive.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🎯 Componente & Scenarii de Testat
 
-## React Compiler
+| Componentă | Locație | Rol & Comportament |
+| :--- | :--- | :--- |
+| **Cart** | [`src/components/Cart.jsx`](./src/components/Cart.jsx) | Coș de cumpărături: adăugare produse, calcul total, golire coș |
+| **Coin** | [`src/components/Coin.jsx`](./src/components/Coin.jsx) | Aruncarea monedei: generare aleatorie Head/Tail și tracking scor |
+| **Timer** | [`src/components/Timer.jsx`](./src/components/Timer.jsx) | Cronometru cu `setInterval`, `useEffect` cleanup, pauză/reset |
+| **Popup** | [`src/components/Popup.jsx`](./src/components/Popup.jsx) | Fereastră modală cu deschidere, închidere și overlay |
+| **ProdusFavorit** | [`src/components/ProdusFavorit.jsx`](./src/components/ProdusFavorit.jsx) | Comutare stare favorit (inimioară) și feedback vizual |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🚀 Rulare Aplicație & Teste
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+# Pornire server de dezvoltare
+npm run dev
+
+# Rulare teste Playwright (Headless)
+npm run test
+
+# Rulare teste în modul UI interactiv
+npx playwright test --ui
+```

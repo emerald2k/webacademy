@@ -1,16 +1,32 @@
-# React + Vite
+# 🌲 Lecția 27: Rute Imbricate & Layouts (Nested Routes & Outlets)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Această lecție explorează arhitectura rutelor avansate cu **Nested Routing**, componente de tip **Layout** și **Outlet** în React Router.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🎯 Concepte Cheie Învățate
 
-## React Compiler
+1. **Rute Părinte & Copil (Nested Routes):**
+   - Structurarea ierarhică a URL-urilor (`/profile`, `/profile/settings`, `/profile/files`).
+   - Păstrarea layout-ului părinte în timp ce doar secțiunea copil se schimbă.
+2. **Componenta `<Outlet />`:**
+   - Punctul de inserare dinamică unde sunt randate componentele rutelor copil.
+3. **Parametri Dinamici (`useParams`):**
+   - Extragerea identificatorilor din URL (ex: `/products/:id`).
+4. **Componente Practice:**
+   - [`FileExplorer.jsx`](./src/FileExplorer.jsx) — Arbore de directoare navigabil
+   - [`Profile.jsx`](./src/Profile.jsx) & [`Settings.jsx`](./src/Settings.jsx) — Layout de profil cu sub-rute
+   - [`Products.jsx`](./src/Products.jsx) & [`Article.jsx`](./src/Article.jsx) — Listare și detalii dinamice
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🚀 Rulare Proiect
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+# Din acest director:
+npm install
+npm run dev
+
+# Sau din rădăcina depozitului:
+npm run dev:l27
+```

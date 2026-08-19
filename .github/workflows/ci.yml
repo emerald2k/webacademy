@@ -1,0 +1,39 @@
+name: CI Workflow
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  build-and-verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Verify TypeScript compilation (Lectia 12)
+        run: npm --prefix cursuri/lectia12 run build
+
+      - name: Build React Projects (Lectia 21, 22, 25, 26, 27, 28)
+        run: |
+          npm --prefix cursuri/lectia21 run build
+          npm --prefix cursuri/lectia22 run build
+          npm --prefix cursuri/lectia25 run build
+          npm --prefix cursuri/lectia26 run build
+          npm --prefix cursuri/lectia27 run build
+          npm --prefix cursuri/lectia28 run build
+
+      - name: Build Capstone Calendar (Tema 7)
+        run: npm --prefix teme/tema7 run build

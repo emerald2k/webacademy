@@ -8,6 +8,7 @@
 [![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![React Router](https://img.shields.io/badge/React_Router_v7-CA4245?style=flat-square&logo=react-router&logoColor=white)](https://reactrouter.com/)
 [![Playwright](https://img.shields.io/badge/Playwright_E2E-2EAD33?style=flat-square&logo=playwright&logoColor=white)](https://playwright.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 
 > 🇷🇴 **Despre acest depozit:** Această arhivă conține toate lecțiile practice (**cursuri**), provocările de codare și temele pentru acasă (**teme**) parcurse în cadrul cursului **WebAcademy**. Proiectul servește drept referință completă de studiu, reflecție și portofoliu.
 >
@@ -18,6 +19,7 @@
 ## 📑 Table of Contents / Cuprins
 
 - [🌟 Overview & Tech Stack](#-overview--tech-stack)
+- [📖 Study Cheatsheet & Code Reference (CHEATSHEET.md)](CHEATSHEET.md)
 - [📚 Curriculum & Lesson Index / Index Cursuri](#-curriculum--lesson-index--index-cursuri)
   - [Phase 1: HTML5, CSS3 & 3D Styling](#phase-1-html5-css3--3d-styling-lecțiile-14)
   - [Phase 2: Vanilla JavaScript & DOM](#phase-2-vanilla-javascript--dom-lecțiile-511)
@@ -122,6 +124,23 @@ flowchart LR
 
 ## 🚀 How to Run the Projects / Ghid de Rulare
 
+### ⚡ Quick Start from Root (Workspaces Enabled)
+Puteți rula oricare dintre proiectele React direct din rădăcina proiectului:
+```bash
+npm install              # Instalează dependențele pentru toate subproiectele
+
+npm run dev:l21          # Lecția 21 (React + Vite Intro)
+npm run dev:l22          # Lecția 22 (Zod Form Validation)
+npm run dev:l25          # Lecția 25 (Playwright & React Components)
+npm run dev:l26          # Lecția 26 (React Router v6 SPA)
+npm run dev:l27          # Lecția 27 (Nested Routes & Outlets)
+npm run dev:l28          # Lecția 28 (React Router v7 CRUD App)
+npm run dev:t7           # Tema 7 (Interactive Calendar)
+
+npm run test:e2e         # Rulare teste Playwright (Lecția 25)
+npm run build:all        # Compilare pentru producție a tuturor proiectelor
+```
+
 ### 1. Simple HTML / Vanilla JavaScript Lessons
 Pentru lecțiile bazate pe HTML/CSS/JS simplu (ex: `cursuri/lectia1` - `cursuri/lectia11`, `teme/tema1` - `teme/tema6`):
 - Deschide fișierul `index.html` direct în browser, sau
@@ -132,29 +151,16 @@ Pentru lecțiile de TypeScript (ex: `cursuri/lectia12`):
 ```bash
 cd cursuri/lectia12
 npm install
-npm run build # sau npx tsc -w pentru watch mode
+npm run build            # sau npx tsc -w pentru watch mode
 ```
 
-### 3. React & Vite Applications
-Pentru proiectele create cu Vite & React (ex: `cursuri/lectia21`, `cursuri/lectia22`, `cursuri/lectia25`, `cursuri/lectia26`, `cursuri/lectia27`, `cursuri/lectia28`, `teme/tema7`):
-```bash
-# Navighează în folderul lecției/proiectului dorit
-cd cursuri/lectia28
-
-# Instalează dependențele
-npm install
-
-# Pornește serverul de dezvoltare
-npm run dev
-```
-
-### 4. Running Playwright E2E Tests
+### 3. Running Playwright E2E Tests
 Pentru suita de teste Playwright din `cursuri/lectia25`:
 ```bash
 cd cursuri/lectia25
 npm install
-npx playwright test
-# Pentru modul UI:
+npm run test
+# Pentru modul UI interactiv:
 npx playwright test --ui
 ```
 

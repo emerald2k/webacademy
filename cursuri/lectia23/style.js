@@ -1,16 +1,18 @@
+const baza = {
+  backgroundColor: 'blue',
+  color: 'white',
+  padding: '10px 20px',
+};
+
 export function creazaStilButon(tip) {
   const culori = {
-    baza: {
-      backgroundColor: 'blue',
-      color: 'white',
-      padding: '10px 20px',
-    },
+    baza,
     succes: {
-      ...culori.baza,
+      ...baza,
       backgroundColor: 'green',
     },
     eroare: {
-      ...culori.baza,
+      ...baza,
       backgroundColor: 'red',
     },
   };

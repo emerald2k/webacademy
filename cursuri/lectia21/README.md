@@ -1,16 +1,42 @@
-# React + Vite
+# ⚛️ Lecția 21: Introducere în React & Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Această lecție marchează trecerea de la Vanilla JavaScript la **React 19** folosind **Vite** ca bundler modern și rapid.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🎯 Concepte Cheie Învățate
 
-## React Compiler
+1. **Vite Tooling & HMR:**
+   - Structura unui proiect React modern (`index.html`, `src/main.jsx`, `src/App.jsx`).
+   - Hot Module Replacement (HMR) pentru actualizări instantanee în browser.
+2. **Componente & JSX:**
+   - Sintaxa JSX (JavaScript XML) și reguli de scriere (element părinte unic, `className`, `htmlFor`).
+   - Componente funcționale și compunerea lor.
+3. **Props & Transmiterea Datelor:**
+   - Transmiterea de proprietăți către componente copil.
+   - De-structurarea `props` și setarea de valori implicite.
+4. **Stare Locală (`useState`):**
+   - Schimbarea temei paginii (`PageTheme.jsx`).
+   - Carduri de produse interactive (`ProdusCard.jsx`).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📂 Structura Proiectului
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- [`src/App.jsx`](./src/App.jsx) — Componenta rădăcină a aplicației
+- [`src/components/NavList.jsx`](./src/components/NavList.jsx) — Meniu de navigare dinamic
+- [`src/components/PageTheme.jsx`](./src/components/PageTheme.jsx) — Comutator de temă Dark / Light
+- [`src/components/ProdusCard.jsx`](./src/components/ProdusCard.jsx) — Card de produs reutilizabil cu stare
+
+---
+
+## 🚀 Rulare Proiect
+
+```bash
+# Din acest director:
+npm install
+npm run dev
+
+# Sau din rădăcina depozitului:
+npm run dev:l21
+```

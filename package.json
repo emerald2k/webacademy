@@ -1,6 +1,39 @@
 {
-  "dependencies": {
-    "react-router": "^7.18.1",
-    "vite": "^8.0.16"
-  }
+  "name": "webacademy-course-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-Stack Web Development Course Journey — 28 Lessons, 8 Capstone Projects & Study References",
+  "workspaces": [
+    "cursuri/lectia12",
+    "cursuri/lectia21",
+    "cursuri/lectia22",
+    "cursuri/lectia25",
+    "cursuri/lectia26",
+    "cursuri/lectia27",
+    "cursuri/lectia28",
+    "teme/tema7"
+  ],
+  "scripts": {
+    "dev:l21": "npm --prefix cursuri/lectia21 run dev",
+    "dev:l22": "npm --prefix cursuri/lectia22 run dev",
+    "dev:l25": "npm --prefix cursuri/lectia25 run dev",
+    "dev:l26": "npm --prefix cursuri/lectia26 run dev",
+    "dev:l27": "npm --prefix cursuri/lectia27 run dev",
+    "dev:l28": "npm --prefix cursuri/lectia28 run dev",
+    "dev:t7": "npm --prefix teme/tema7 run dev",
+    "test:e2e": "npm --prefix cursuri/lectia25 run test",
+    "build:all": "npm --prefix cursuri/lectia12 run build && npm --prefix cursuri/lectia21 run build && npm --prefix cursuri/lectia22 run build && npm --prefix cursuri/lectia25 run build && npm --prefix cursuri/lectia26 run build && npm --prefix cursuri/lectia27 run build && npm --prefix cursuri/lectia28 run build && npm --prefix teme/tema7 run build"
+  },
+  "keywords": [
+    "web-development",
+    "javascript",
+    "typescript",
+    "react",
+    "react-router",
+    "playwright",
+    "portfolio",
+    "study-notes"
+  ],
+  "author": "Matei",
+  "license": "MIT"
 }

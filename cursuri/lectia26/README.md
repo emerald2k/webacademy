@@ -1,16 +1,30 @@
-# React + Vite
+# 🧭 Lecția 26: Introducere în React Router (Client-Side Routing)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Această lecție acoperă fundamentele navigării single-page application (SPA) folosind biblioteca **React Router**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🎯 Concepte Cheie Învățate
 
-## React Compiler
+1. **SPA Routing vs Tradițional:**
+   - Navigare instantanee fără reîncărcarea completă a paginii.
+   - Sincronizarea URL-ului din browser cu arborele de componente React.
+2. **Componente de Navigare Fundamentale:**
+   - `BrowserRouter`: Furnizorul de context pentru istoricul browserului.
+   - `Routes` & `Route`: Declararea căilor (`path`) și componentelor asociate (`element`).
+   - `Link` & `NavLink`: Navigare declarativă fără `<a>` nativ (prevenind page reload).
+3. **Paginare & Rute de Bază:**
+   - Pagina Acasă, Articole (`Article.jsx`), Produse (`Products.jsx`), Lecții (`Lessons.jsx`).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🚀 Rulare Proiect
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+# Din acest director:
+npm install
+npm run dev
+
+# Sau din rădăcina depozitului:
+npm run dev:l26
+```
